@@ -11,7 +11,7 @@ export default function (app: Application) {
       isDisabled: () => {
         const monthlyCounts = app.forum.attribute('afrux-top-posters-widget.data');
 
-        return !app.forum.attribute('canSearchUsers') || !monthlyCounts || !monthlyCounts.length;
+        return !app.forum.attribute('canSearchUsers') || !monthlyCounts || !Object.keys(monthlyCounts).length;
       },
       isUnique: true,
       placement: 'end',
