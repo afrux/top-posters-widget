@@ -17,7 +17,7 @@ composer require afrux/top-posters-widget:"*"
 ## Updating
 
 ```sh
-composer update afrux/top-posters-widget:"*"
+composer update afrux/top-posters-widget:"*" --with-dependencies
 php flarum migrate
 php flarum cache:clear
 ```
