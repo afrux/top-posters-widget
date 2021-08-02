@@ -48,7 +48,7 @@
         },
         "flarum-extension": {
             "title": "Top Posters Widget",
-            "category": "",
+            "category": "forum-widget",
             "icon": {
                 "name": "fas fa-sort-numeric-down",
                 "backgroundColor": "#e34b6e",
