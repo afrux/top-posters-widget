@@ -4,6 +4,8 @@
 
 A [Flarum](http://flarum.org) extension. Top Posters in the past month Widget.
 
+![flarum lan_ (5)](https://user-images.githubusercontent.com/20267363/127893614-e4874003-4a2f-451d-9f84-37cebc4430ed.png)
+
 ## Installation
 
 This will also install [Forum Widgets Core](https://github.com/afrux/forum-widgets-core) as it relies on it.
