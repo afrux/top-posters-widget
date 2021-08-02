@@ -1,6 +1,6 @@
 # Top Posters Widget
 
-[License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square) [![Latest Stable Version](https://img.shields.io/packagist/v/afrux/top-posters-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/top-posters-widget) [![Total Downloads](https://img.shields.io/packagist/dt/afrux/top-posters-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/top-posters-widget) [![donate](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-%23ffde39?style=flat-square)](https://www.buymeacoffee.com/sycho)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square) [![Latest Stable Version](https://img.shields.io/packagist/v/afrux/top-posters-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/top-posters-widget) [![Total Downloads](https://img.shields.io/packagist/dt/afrux/top-posters-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/top-posters-widget) [![donate](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-%23ffde39?style=flat-square)](https://www.buymeacoffee.com/sycho)
 
 A [Flarum](http://flarum.org) extension. Top Posters Widget
 
