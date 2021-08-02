@@ -8,7 +8,11 @@ export default function (app: Application) {
     .add({
       key: 'topPosters',
       component: TopPostersWidget,
-      isDisabled: () => !app.forum.attribute('canSearchUsers'),
+      isDisabled: () => {
+        const monthlyCounts = app.forum.attribute('afrux-top-posters-widget.data');
+
+        return !app.forum.attribute('canSearchUsers') || !monthlyCounts || !monthlyCounts.length;
+      },
       isUnique: true,
       placement: 'end',
       position: 3,
