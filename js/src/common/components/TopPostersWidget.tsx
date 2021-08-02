@@ -1,9 +1,9 @@
-import * as Mithril from "mithril";
+import * as Mithril from 'mithril';
 import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
 import avatar from 'flarum/common/helpers/avatar';
 import icon from 'flarum/common/helpers/icon';
 import Widget from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
-import type User from "flarum/common/models/User";
+import type User from 'flarum/common/models/User';
 
 export default class TopPostersWidget extends Widget {
   private monthlyCounts!: any;
@@ -68,12 +68,11 @@ export default class TopPostersWidget extends Widget {
   load(): void {
     this.attrs.state.isLoading = true;
 
-    app.store.find('users', { filter: { top_poster: true } })
-      .then((users: User[]) => {
-        this.attrs.state.users = users;
-        this.attrs.state.isLoading = false;
-        this.attrs.state.hasLoaded = true;
-        m.redraw();
-      });
+    app.store.find('users', { filter: { top_poster: true } }).then((users: User[]) => {
+      this.attrs.state.users = users;
+      this.attrs.state.isLoading = false;
+      this.attrs.state.hasLoaded = true;
+      m.redraw();
+    });
   }
 }
