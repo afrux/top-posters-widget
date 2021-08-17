@@ -9,9 +9,10 @@ export default function (app: Application) {
       key: 'topPosters',
       component: TopPostersWidget,
       isDisabled: () => {
-        const monthlyCounts = app.forum.attribute('afrux-top-posters-widget.data');
+        const loadWithInitialResponse = app.forum.attribute('afrux-forum-widgets-core.preferDataWithInitialLoad');
+        const monthlyCounts = app.forum.attribute('afrux-top-posters-widget.topPosterCounts');
 
-        return !app.forum.attribute('canSearchUsers') || !monthlyCounts || !Object.keys(monthlyCounts).length;
+        return (!loadWithInitialResponse && !app.forum.attribute('canSearchUsers')) || !monthlyCounts || !Object.keys(monthlyCounts).length;
       },
       isUnique: true,
       placement: 'end',

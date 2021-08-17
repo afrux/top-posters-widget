@@ -29,7 +29,7 @@ class UserRepository
 
     public function getTopPosters(): array
     {
-        return $this->cache->remember('afrux-top-posters-widget.data', 2400, function (): array {
+        return $this->cache->remember('afrux-top-posters-widget.top_poster_counts', 2400, function (): array {
             return CommentPost::query()
                 ->selectRaw('user_id, count(id) as count')
                 ->where('created_at', '>', Carbon::now()->subMonth())

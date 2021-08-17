@@ -11,7 +11,8 @@ export default class TopPostersWidget extends Widget {
   oninit(vnode): void {
     super.oninit(vnode);
 
-    this.monthlyCounts = app.forum.attribute('afrux-top-posters-widget.data');
+    this.monthlyCounts = app.forum.attribute('afrux-top-posters-widget.topPosterCounts');
+    this.loadWithInitialResponse = app.forum.attribute('afrux-forum-widgets-core.preferDataWithInitialLoad');
     this.attrs.state.users ??= [];
     this.attrs.state.isLoading ??= true;
     this.attrs.state.hasLoaded ??= false;
@@ -21,7 +22,7 @@ export default class TopPostersWidget extends Widget {
     super.oncreate(vnode);
 
     if (!this.attrs.state.hasLoaded) {
-      setTimeout(this.load.bind(this), 800);
+      setTimeout(this.load.bind(this), this.loadWithInitialResponse ? 0 : 800);
     }
   }
 
@@ -66,6 +67,15 @@ export default class TopPostersWidget extends Widget {
   }
 
   load(): void {
+    if (this.loadWithInitialResponse) {
+      this.attrs.state.users = app.forum.topPosters();
+      this.attrs.state.isLoading = false;
+      this.attrs.state.hasLoaded = true;
+      m.redraw();
+
+      return;
+    }
+
     this.attrs.state.isLoading = true;
 
     app.store.find('users', { filter: { top_poster: true } }).then((users: User[]) => {

@@ -34,7 +34,7 @@ class AddTopPostersToApi
         }
 
         return [
-            'afrux-top-posters-widget.data' => $data,
+            'afrux-top-posters-widget.topPosterCounts' => $data,
         ];
     }
 }
