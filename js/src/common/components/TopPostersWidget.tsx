@@ -68,10 +68,7 @@ export default class TopPostersWidget extends Widget {
 
   load(): void {
     if (this.loadWithInitialResponse) {
-      this.attrs.state.users = app.forum.topPosters();
-      this.attrs.state.isLoading = false;
-      this.attrs.state.hasLoaded = true;
-      m.redraw();
+      this.setResults(app.forum.topPosters());
 
       return;
     }
@@ -79,10 +76,14 @@ export default class TopPostersWidget extends Widget {
     this.attrs.state.isLoading = true;
 
     app.store.find('users', { filter: { top_poster: true } }).then((users: User[]) => {
-      this.attrs.state.users = users;
-      this.attrs.state.isLoading = false;
-      this.attrs.state.hasLoaded = true;
-      m.redraw();
+      this.setResults(users);
     });
+  }
+
+  setResults(users) {
+    this.attrs.state.users = users;
+    this.attrs.state.isLoading = false;
+    this.attrs.state.hasLoaded = true;
+    m.redraw();
   }
 }
