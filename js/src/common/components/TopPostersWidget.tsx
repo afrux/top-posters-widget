@@ -13,7 +13,7 @@ export default class TopPostersWidget extends Widget {
 
     this.monthlyCounts = app.forum.attribute('afrux-top-posters-widget.data');
     this.attrs.state.users ??= [];
-    this.attrs.state.isLoading ??= false;
+    this.attrs.state.isLoading ??= true;
     this.attrs.state.hasLoaded ??= false;
   }
 
@@ -21,7 +21,7 @@ export default class TopPostersWidget extends Widget {
     super.oncreate(vnode);
 
     if (!this.attrs.state.hasLoaded) {
-      this.load();
+      setTimeout(this.load.bind(this), 800);
     }
   }
 
