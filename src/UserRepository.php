@@ -13,16 +13,16 @@ namespace Afrux\TopPosters;
 
 use Carbon\Carbon;
 use Flarum\Post\CommentPost;
-use Illuminate\Contracts\Cache\Factory;
+use Illuminate\Contracts\Cache\Repository;
 
 class UserRepository
 {
     /**
-     * @var Factory
+     * @var Repository
      */
     private $cache;
 
-    public function __construct(Factory $cache)
+    public function __construct(Repository $cache)
     {
         $this->cache = $cache;
     }
