@@ -11,18 +11,18 @@
 
 namespace Afrux\TopPosters;
 
+use Afrux\ForumWidgets\SafeCacheRepositoryAdapter;
 use Carbon\Carbon;
 use Flarum\Post\CommentPost;
-use Illuminate\Contracts\Cache\Repository;
 
 class UserRepository
 {
     /**
-     * @var Repository
+     * @var SafeCacheRepositoryAdapter
      */
     private $cache;
 
-    public function __construct(Repository $cache)
+    public function __construct(SafeCacheRepositoryAdapter $cache)
     {
         $this->cache = $cache;
     }
@@ -41,6 +41,6 @@ class UserRepository
                     return [$post->user_id => (int) $post->count];
                 })
                 ->toArray();
-        });
+        }) ?: [];
     }
 }
