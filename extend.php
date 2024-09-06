@@ -14,6 +14,7 @@ namespace Afrux\TopPosters;
 use Flarum\Api\Serializer as FlarumSerializer;
 use Flarum\Api\Controller\ShowForumController;
 use Flarum\Extend;
+use Flarum\Settings\Event\Saved;
 use Flarum\User\Filter\UserFilterer;
 use Flarum\User\Search\UserSearcher;
 use Flarum\User\User;
@@ -42,4 +43,10 @@ return [
 
     (new Extend\SimpleFlarumSearch(UserSearcher::class))
         ->addGambit(Query\TopPosterGambitFilter::class),
+
+    (new Extend\Settings())
+        ->default('afrux-top-posters-widget.excludeGroups', '[]'),
+
+    (new Extend\Event())
+        ->listen(Saved::class, Listener\ClearTopPosterCacheOnSettingsChange::class),
 ];

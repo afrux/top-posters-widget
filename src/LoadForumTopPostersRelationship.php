@@ -30,6 +30,12 @@ class LoadForumTopPostersRelationship
      */
     private $cache;
 
+    /**
+     *
+     * @var UserRepository
+     */
+    protected $repository;
+
     public function __construct(SettingsRepositoryInterface $settings, SafeCacheRepositoryAdapter $cache, UserRepository $repository)
     {
         $this->settings = $settings;
