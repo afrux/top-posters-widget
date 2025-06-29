@@ -20,7 +20,7 @@ use Illuminate\Contracts\Cache\Repository as IlluminateCache;
 class UserRepository
 {
     static $cacheKey = 'afrux-top-posters-widget.top_poster_counts';
-    
+
     /**
      * @var SafeCacheRepositoryAdapter
      */
@@ -60,7 +60,8 @@ class UserRepository
                 ->orderBy('count', 'desc')
                 ->limit(5)
                 ->get()
-                ->mapWithKeys(function ($post) {
+                ->sortByDesc('count')
+                ->mapWithKeys(function (CommentPost $post) {
                     return [$post->user_id => (int) $post->count];
                 })
                 ->toArray();
